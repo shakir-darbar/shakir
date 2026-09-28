@@ -1,0 +1,22 @@
+{
+    "winning_model": "Custom CNN",
+    "macro_f1": 1.0,
+    "target_classes": [
+        "Healthy",
+        "Pneumonia",
+        "URTI",
+        "Bronchiectasis"
+    ],
+    "class_to_idx": {
+        "Healthy": 0,
+        "Pneumonia": 1,
+        "URTI": 2,
+        "Bronchiectasis": 3
+    },
+    "idx_to_class": {
+        "0": "Healthy",
+        "1": "Pneumonia",
+        "2": "URTI",
+        "3": "Bronchiectasis"
+    }
+}
