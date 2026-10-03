@@ -1,0 +1,45 @@
+{
+    "model_name": "efficientnet_b0",
+    "test_samples": 129,
+    "accuracy": 0.46511627906976744,
+    "macro_precision": 0.5507936507936508,
+    "macro_recall": 0.5044871794871795,
+    "macro_f1": 0.4276198984178353,
+    "weighted_precision": 0.6637012427710102,
+    "weighted_recall": 0.46511627906976744,
+    "weighted_f1": 0.41115053630811516,
+    "roc_auc_macro": 0.8130242717292477,
+    "per_class": {
+        "Healthy": {
+            "precision": 0.45714285714285713,
+            "recall": 0.9696969696969697,
+            "f1": 0.6213592233009708,
+            "support": 33,
+            "auc": 0.9160353535353536
+        },
+        "Pneumonia": {
+            "precision": 0.3888888888888889,
+            "recall": 0.5,
+            "f1": 0.4375,
+            "support": 28,
+            "auc": 0.7613154172560114
+        },
+        "URTI": {
+            "precision": 0.35714285714285715,
+            "recall": 0.38461538461538464,
+            "f1": 0.37037037037037035,
+            "support": 13,
+            "auc": 0.6140583554376657
+        },
+        "Bronchiectasis": {
+            "precision": 1.0,
+            "recall": 0.16363636363636364,
+            "f1": 0.28125,
+            "support": 55,
+            "auc": 0.9606879606879606
+        }
+    },
+    "training_time_seconds": 581.7904777526855,
+    "total_params": 4379559,
+    "trainable_params": 329476
+}

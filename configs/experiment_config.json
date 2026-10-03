@@ -1,0 +1,88 @@
+{
+    "project": "ICBHI 2017 Respiratory Disease Classification",
+    "dataset": {
+        "name": "ICBHI 2017 Respiratory Sound Database",
+        "raw_dir": "data/raw",
+        "png_dir": "data/original_png",
+        "classes": [
+            "Healthy",
+            "Pneumonia",
+            "URTI",
+            "Bronchiectasis"
+        ],
+        "split_ratios": {
+            "train": 0.70,
+            "validation": 0.15,
+            "test": 0.15
+        },
+        "split_strategy": "Patient-independent GroupShuffleSplit",
+        "zero_patient_leakage": true,
+        "sample_rate": 16000,
+        "audio_segment_duration_seconds": 5.0,
+        "segment_overlap": 0.50,
+        "spectrogram_parameters": {
+            "n_mels": 128,
+            "n_fft": 2048,
+            "hop_length": 512,
+            "power": 2.0,
+            "channels": [
+                "Log-Mel (R)",
+                "Delta (G)",
+                "Delta-Delta (B)"
+            ],
+            "png_resolution": "157x128",
+            "normalization": "Min-Max uint8 per channel"
+        }
+    },
+    "cnn_training_config": {
+        "image_size": [224, 224],
+        "batch_size": 32,
+        "max_epochs": 35,
+        "optimizer": "Adam",
+        "initial_learning_rate": 0.001,
+        "loss_function": "sparse_categorical_crossentropy",
+        "dropout_rate": 0.5,
+        "dense_units": 256,
+        "class_weighting": "Inverse frequency weighting",
+        "callbacks": {
+            "early_stopping": {
+                "monitor": "val_loss",
+                "patience": 8,
+                "restore_best_weights": true
+            },
+            "reduce_lr_on_plateau": {
+                "monitor": "val_loss",
+                "factor": 0.5,
+                "patience": 4,
+                "min_lr": 1e-7
+            }
+        },
+        "random_seed": 42
+    },
+    "models": [
+        {
+            "name": "resnet50",
+            "backbone": "ResNet50 (ImageNet pretrained)",
+            "base_frozen": true,
+            "head": "GAP -> Dense(256, ReLU) -> BatchNorm -> Dropout(0.5) -> Dense(4, Softmax)"
+        },
+        {
+            "name": "densenet121",
+            "backbone": "DenseNet121 (ImageNet pretrained)",
+            "base_frozen": true,
+            "head": "GAP -> Dense(256, ReLU) -> BatchNorm -> Dropout(0.5) -> Dense(4, Softmax)"
+        },
+        {
+            "name": "mobilenetv2",
+            "backbone": "MobileNetV2 (ImageNet pretrained)",
+            "base_frozen": true,
+            "head": "GAP -> Dense(256, ReLU) -> BatchNorm -> Dropout(0.5) -> Dense(4, Softmax)"
+        },
+        {
+            "name": "efficientnet_b0",
+            "backbone": "EfficientNet-B0 (ImageNet pretrained)",
+            "base_frozen": true,
+            "head": "GAP -> Dense(256, ReLU) -> BatchNorm -> Dropout(0.5) -> Dense(4, Softmax)"
+        }
+    ]
+}

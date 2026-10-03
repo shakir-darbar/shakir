@@ -37,3 +37,11 @@ secrets.json
 # Any other environment files you may add later
 *.env
 # End of .gitignore
+
+# --- Phase 2 and 3 Massive Files (DO NOT PUSH TO GITHUB) ---
+data/augmented_png/
+data/spectrograms/
+models_augmented/
+models/
+*.keras
+*.npy

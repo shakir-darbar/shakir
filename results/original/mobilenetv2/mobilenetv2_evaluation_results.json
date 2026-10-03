@@ -1,0 +1,45 @@
+{
+    "model_name": "mobilenetv2",
+    "test_samples": 129,
+    "accuracy": 0.3953488372093023,
+    "macro_precision": 0.4784992887014946,
+    "macro_recall": 0.44917166167166167,
+    "macro_f1": 0.38575082206795763,
+    "weighted_precision": 0.5984180168516695,
+    "weighted_recall": 0.3953488372093023,
+    "weighted_f1": 0.39093171478230665,
+    "roc_auc_macro": 0.7216484774914487,
+    "per_class": {
+        "Healthy": {
+            "precision": 0.37254901960784315,
+            "recall": 0.5757575757575758,
+            "f1": 0.4523809523809524,
+            "support": 33,
+            "auc": 0.7023358585858586
+        },
+        "Pneumonia": {
+            "precision": 0.40625,
+            "recall": 0.4642857142857143,
+            "f1": 0.43333333333333335,
+            "support": 28,
+            "auc": 0.6085572842998586
+        },
+        "URTI": {
+            "precision": 0.21212121212121213,
+            "recall": 0.5384615384615384,
+            "f1": 0.30434782608695654,
+            "support": 13,
+            "auc": 0.7486737400530504
+        },
+        "Bronchiectasis": {
+            "precision": 0.9230769230769231,
+            "recall": 0.21818181818181817,
+            "f1": 0.35294117647058826,
+            "support": 55,
+            "auc": 0.827027027027027
+        }
+    },
+    "training_time_seconds": 83.73990726470947,
+    "total_params": 2587972,
+    "trainable_params": 329476
+}

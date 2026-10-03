@@ -1,0 +1,182 @@
+[
+    {
+        "model_name": "resnet50",
+        "test_samples": 129,
+        "accuracy": 0.40310077519379844,
+        "macro_precision": 0.49193371907570194,
+        "macro_recall": 0.45203962703962697,
+        "macro_f1": 0.3969724082198106,
+        "weighted_precision": 0.6208647920668643,
+        "weighted_recall": 0.40310077519379844,
+        "weighted_f1": 0.41787035595195265,
+        "roc_auc_macro": 0.7588141272723254,
+        "per_class": {
+            "Healthy": {
+                "precision": 0.4473684210526316,
+                "recall": 0.5151515151515151,
+                "f1": 0.4788732394366197,
+                "support": 33,
+                "auc": 0.7629419191919191
+            },
+            "Pneumonia": {
+                "precision": 0.42424242424242425,
+                "recall": 0.5,
+                "f1": 0.45901639344262296,
+                "support": 28,
+                "auc": 0.6439179632248939
+            },
+            "URTI": {
+                "precision": 0.16279069767441862,
+                "recall": 0.5384615384615384,
+                "f1": 0.25,
+                "support": 13,
+                "auc": 0.7035809018567639
+            },
+            "Bronchiectasis": {
+                "precision": 0.9333333333333333,
+                "recall": 0.2545454545454545,
+                "f1": 0.4,
+                "support": 55,
+                "auc": 0.9248157248157248
+            }
+        },
+        "training_time_seconds": 278.7544581890106,
+        "total_params": 24114308,
+        "trainable_params": 526084
+    },
+    {
+        "model_name": "densenet121",
+        "test_samples": 129,
+        "accuracy": 0.4806201550387597,
+        "macro_precision": 0.5214285714285715,
+        "macro_recall": 0.5035547785547785,
+        "macro_f1": 0.46203026947212994,
+        "weighted_precision": 0.6524178663713548,
+        "weighted_recall": 0.4806201550387597,
+        "weighted_f1": 0.502523829554657,
+        "roc_auc_macro": 0.8233850672881698,
+        "per_class": {
+            "Healthy": {
+                "precision": 0.4523809523809524,
+                "recall": 0.5757575757575758,
+                "f1": 0.5066666666666667,
+                "support": 33,
+                "auc": 0.786300505050505
+            },
+            "Pneumonia": {
+                "precision": 0.4,
+                "recall": 0.5,
+                "f1": 0.4444444444444444,
+                "support": 28,
+                "auc": 0.7606082036775106
+            },
+            "URTI": {
+                "precision": 0.23333333333333334,
+                "recall": 0.5384615384615384,
+                "f1": 0.32558139534883723,
+                "support": 13,
+                "auc": 0.7559681697612732
+            },
+            "Bronchiectasis": {
+                "precision": 1.0,
+                "recall": 0.4,
+                "f1": 0.5714285714285714,
+                "support": 55,
+                "auc": 0.9906633906633906
+            }
+        },
+        "training_time_seconds": 568.3415515422821,
+        "total_params": 7301956,
+        "trainable_params": 263940
+    },
+    {
+        "model_name": "mobilenetv2",
+        "test_samples": 129,
+        "accuracy": 0.3953488372093023,
+        "macro_precision": 0.4784992887014946,
+        "macro_recall": 0.44917166167166167,
+        "macro_f1": 0.38575082206795763,
+        "weighted_precision": 0.5984180168516695,
+        "weighted_recall": 0.3953488372093023,
+        "weighted_f1": 0.39093171478230665,
+        "roc_auc_macro": 0.7216484774914487,
+        "per_class": {
+            "Healthy": {
+                "precision": 0.37254901960784315,
+                "recall": 0.5757575757575758,
+                "f1": 0.4523809523809524,
+                "support": 33,
+                "auc": 0.7023358585858586
+            },
+            "Pneumonia": {
+                "precision": 0.40625,
+                "recall": 0.4642857142857143,
+                "f1": 0.43333333333333335,
+                "support": 28,
+                "auc": 0.6085572842998586
+            },
+            "URTI": {
+                "precision": 0.21212121212121213,
+                "recall": 0.5384615384615384,
+                "f1": 0.30434782608695654,
+                "support": 13,
+                "auc": 0.7486737400530504
+            },
+            "Bronchiectasis": {
+                "precision": 0.9230769230769231,
+                "recall": 0.21818181818181817,
+                "f1": 0.35294117647058826,
+                "support": 55,
+                "auc": 0.827027027027027
+            }
+        },
+        "training_time_seconds": 83.73990726470947,
+        "total_params": 2587972,
+        "trainable_params": 329476
+    },
+    {
+        "model_name": "efficientnet_b0",
+        "test_samples": 129,
+        "accuracy": 0.5116279069767442,
+        "macro_precision": 0.5749299719887955,
+        "macro_recall": 0.55506993006993,
+        "macro_f1": 0.49296274961597547,
+        "weighted_precision": 0.6790437105074588,
+        "weighted_recall": 0.5116279069767442,
+        "weighted_f1": 0.48766090332106826,
+        "roc_auc_macro": 0.8236932620537307,
+        "per_class": {
+            "Healthy": {
+                "precision": 0.47619047619047616,
+                "recall": 0.9090909090909091,
+                "f1": 0.625,
+                "support": 33,
+                "auc": 0.8778409090909092
+            },
+            "Pneumonia": {
+                "precision": 0.4117647058823529,
+                "recall": 0.5,
+                "f1": 0.45161290322580644,
+                "support": 28,
+                "auc": 0.7475247524752475
+            },
+            "URTI": {
+                "precision": 0.4117647058823529,
+                "recall": 0.5384615384615384,
+                "f1": 0.4666666666666667,
+                "support": 13,
+                "auc": 0.6949602122015914
+            },
+            "Bronchiectasis": {
+                "precision": 1.0,
+                "recall": 0.2727272727272727,
+                "f1": 0.42857142857142855,
+                "support": 55,
+                "auc": 0.9744471744471744
+            }
+        },
+        "training_time_seconds": 172.65884733200073,
+        "total_params": 4379559,
+        "trainable_params": 329476
+    }
+]

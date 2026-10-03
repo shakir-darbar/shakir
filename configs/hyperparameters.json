@@ -1,0 +1,133 @@
+{
+    "_description": "Controlled Baseline Hyperparameter Configuration for CNN Comparison",
+    "_note": "Same configuration used for ALL 4 models to ensure fair comparison",
+    "_seed": "All experiments use the same random seed for reproducibility",
+
+    "experiment": {
+        "name": "Respiratory Sound Classification - Original Dataset",
+        "dataset": "data/original_png",
+        "target_classes": ["Healthy", "Pneumonia", "URTI", "Bronchiectasis"],
+        "num_classes": 4
+    },
+
+    "data": {
+        "image_size": [224, 224],
+        "image_size_note": "All pretrained models expect 224x224. PNGs (157x128) are resized via bilinear interpolation.",
+        "color_mode": "RGB",
+        "color_channels": 3,
+        "channel_mapping": {
+            "R": "Log-Mel Spectrogram (static energy)",
+            "G": "Delta (1st derivative / velocity)",
+            "B": "Delta-Delta (2nd derivative / acceleration)"
+        },
+        "batch_size": 32,
+        "shuffle_train": true,
+        "shuffle_val_test": false
+    },
+
+    "training": {
+        "max_epochs": 50,
+        "optimizer": "Adam",
+        "initial_learning_rate": 0.001,
+        "loss_function": "sparse_categorical_crossentropy",
+        "loss_note": "Sparse categorical crossentropy allows integer labels without one-hot encoding",
+        "class_weights": "Computed automatically from training set (inverse frequency weighting)",
+        "random_seed": 42
+    },
+
+    "learning_rate_schedule": {
+        "type": "ReduceLROnPlateau",
+        "monitor": "val_loss",
+        "factor": 0.5,
+        "patience": 5,
+        "min_lr": 1e-7,
+        "mode": "min",
+        "note": "Halves the learning rate when val_loss plateaus for 5 epochs"
+    },
+
+    "early_stopping": {
+        "monitor": "val_loss",
+        "patience": 10,
+        "restore_best_weights": true,
+        "mode": "min",
+        "note": "Stops training if val_loss does not improve for 10 consecutive epochs. Restores the best weights."
+    },
+
+    "model_checkpoint": {
+        "monitor": "val_loss",
+        "save_best_only": true,
+        "format": ".keras",
+        "note": "Saves only the model with the lowest val_loss"
+    },
+
+    "classifier_head": {
+        "architecture": "GAP -> Dense(256, ReLU) -> BatchNorm -> Dropout(0.5) -> Dense(4, Softmax)",
+        "global_pooling": "GlobalAveragePooling2D",
+        "dense_units": 256,
+        "dense_activation": "ReLU",
+        "batch_normalization": true,
+        "dropout_rate": 0.5,
+        "output_units": 4,
+        "output_activation": "softmax",
+        "note": "Identical head across all 4 models for fair comparison"
+    },
+
+    "transfer_learning": {
+        "pretrained_weights": "ImageNet",
+        "base_frozen": true,
+        "base_trainable_layers": 0,
+        "fine_tuning": "Not applied in initial experiment (frozen base only)",
+        "note": "All ImageNet base layers are frozen. Only the classifier head is trained."
+    },
+
+    "models": {
+        "resnet50": {
+            "full_name": "ResNet50",
+            "paper": "He et al., 2015 - Deep Residual Learning",
+            "base_params": "~23.5M",
+            "preprocessing": "Caffe-style (BGR, mean subtraction)",
+            "key_feature": "Residual skip connections for deep feature extraction",
+            "model_specific_adjustments": "None - uses baseline config"
+        },
+        "densenet121": {
+            "full_name": "DenseNet121",
+            "paper": "Huang et al., 2017 - Densely Connected CNNs",
+            "base_params": "~7M",
+            "preprocessing": "Torch-style (RGB, per-channel normalization)",
+            "key_feature": "Dense connections - every layer connected to every other",
+            "model_specific_adjustments": "None - uses baseline config"
+        },
+        "mobilenetv2": {
+            "full_name": "MobileNetV2",
+            "paper": "Sandler et al., 2018 - Inverted Residuals",
+            "base_params": "~3.4M",
+            "preprocessing": "Scale to [-1, 1]",
+            "key_feature": "Depthwise separable convolutions for efficiency",
+            "model_specific_adjustments": "None - uses baseline config"
+        },
+        "efficientnet_b0": {
+            "full_name": "EfficientNet-B0",
+            "paper": "Tan & Le, 2019 - Compound Scaling",
+            "base_params": "~5.3M",
+            "preprocessing": "Built-in rescaling (raw [0,255] input)",
+            "key_feature": "Compound scaling + SE attention blocks",
+            "model_specific_adjustments": "None - uses baseline config"
+        }
+    },
+
+    "evaluation_metrics": [
+        "Accuracy",
+        "Precision (per-class, macro, weighted)",
+        "Recall (per-class, macro, weighted)",
+        "F1-Score (per-class, macro, weighted)",
+        "ROC-AUC (per-class, macro)",
+        "Per-class ROC curves",
+        "Macro-average ROC curve",
+        "Confusion matrix",
+        "Classification report",
+        "Training accuracy curve",
+        "Validation accuracy curve",
+        "Training loss curve",
+        "Validation loss curve"
+    ]
+}

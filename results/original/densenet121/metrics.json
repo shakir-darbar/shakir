@@ -1,0 +1,45 @@
+{
+    "model_name": "densenet121",
+    "test_samples": 129,
+    "accuracy": 0.4806201550387597,
+    "macro_precision": 0.5214285714285715,
+    "macro_recall": 0.5035547785547785,
+    "macro_f1": 0.46203026947212994,
+    "weighted_precision": 0.6524178663713548,
+    "weighted_recall": 0.4806201550387597,
+    "weighted_f1": 0.502523829554657,
+    "roc_auc_macro": 0.8233850672881698,
+    "per_class": {
+        "Healthy": {
+            "precision": 0.4523809523809524,
+            "recall": 0.5757575757575758,
+            "f1": 0.5066666666666667,
+            "support": 33,
+            "auc": 0.786300505050505
+        },
+        "Pneumonia": {
+            "precision": 0.4,
+            "recall": 0.5,
+            "f1": 0.4444444444444444,
+            "support": 28,
+            "auc": 0.7606082036775106
+        },
+        "URTI": {
+            "precision": 0.23333333333333334,
+            "recall": 0.5384615384615384,
+            "f1": 0.32558139534883723,
+            "support": 13,
+            "auc": 0.7559681697612732
+        },
+        "Bronchiectasis": {
+            "precision": 1.0,
+            "recall": 0.4,
+            "f1": 0.5714285714285714,
+            "support": 55,
+            "auc": 0.9906633906633906
+        }
+    },
+    "training_time_seconds": 568.3415515422821,
+    "total_params": 7301956,
+    "trainable_params": 263940
+}

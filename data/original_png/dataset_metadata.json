@@ -1,0 +1,110 @@
+{
+    "random_seed": 42,
+    "split_ratios": {
+        "train": 0.7,
+        "validation": 0.15,
+        "test": 0.15
+    },
+    "patient_split": {
+        "train_patients": [
+            101,
+            102,
+            105,
+            111,
+            121,
+            122,
+            123,
+            125,
+            126,
+            127,
+            131,
+            136,
+            137,
+            143,
+            148,
+            150,
+            152,
+            153,
+            159,
+            164,
+            165,
+            168,
+            169,
+            182,
+            183,
+            184,
+            187,
+            188,
+            190,
+            191,
+            194,
+            197,
+            202,
+            209,
+            214,
+            219,
+            226
+        ],
+        "val_patients": [
+            116,
+            135,
+            171,
+            179,
+            196,
+            210,
+            217,
+            225
+        ],
+        "test_patients": [
+            119,
+            129,
+            140,
+            144,
+            201,
+            208,
+            215,
+            224
+        ]
+    },
+    "png_counts": {
+        "train": {
+            "URTI": 130,
+            "Healthy": 169,
+            "Bronchiectasis": 35,
+            "Pneumonia": 138
+        },
+        "validation": {
+            "Bronchiectasis": 20,
+            "Pneumonia": 87,
+            "Healthy": 35,
+            "URTI": 13
+        },
+        "test": {
+            "URTI": 13,
+            "Pneumonia": 28,
+            "Healthy": 33,
+            "Bronchiectasis": 55
+        }
+    },
+    "grand_total": 756,
+    "failed_count": 0,
+    "target_classes": [
+        "Healthy",
+        "Pneumonia",
+        "URTI",
+        "Bronchiectasis"
+    ],
+    "preprocessing_params": {
+        "sample_rate": 16000,
+        "duration_seconds": 5.0,
+        "n_mels": 128,
+        "n_fft": 2048,
+        "hop_length": 512,
+        "overlap": 0.5,
+        "channels": [
+            "Log-Mel",
+            "Delta",
+            "Delta-Delta"
+        ]
+    }
+}

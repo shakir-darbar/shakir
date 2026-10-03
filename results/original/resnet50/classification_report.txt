@@ -1,0 +1,10 @@
+                precision    recall  f1-score   support
+
+       Healthy     0.4474    0.5152    0.4789        33
+     Pneumonia     0.4242    0.5000    0.4590        28
+          URTI     0.1628    0.5385    0.2500        13
+Bronchiectasis     0.9333    0.2545    0.4000        55
+
+      accuracy                         0.4031       129
+     macro avg     0.4919    0.4520    0.3970       129
+  weighted avg     0.6209    0.4031    0.4179       129

@@ -1,0 +1,5 @@
+Model,Accuracy,Macro Precision,Weighted Precision,Macro Recall,Weighted Recall,Macro F1,Weighted F1,Macro ROC-AUC,Total Parameters,Trainable Parameters,Training Time (s)
+resnet50,51.16,64.6,70.51,49.94,51.16,48.48,50.48,0.7624,24114308,526084,836.5
+densenet121,68.22,66.43,74.69,64.29,68.22,63.72,69.51,0.8606,7301956,263940,794.2
+mobilenetv2,30.23,39.25,50.81,34.54,30.23,29.38,30.13,0.7038,2587972,329476,183.1
+efficientnet_b0,46.51,55.08,66.37,50.45,46.51,42.76,41.12,0.813,4379559,329476,581.8
